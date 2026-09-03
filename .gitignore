@@ -15,6 +15,3 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
-
-ca.pem
-*.pem
