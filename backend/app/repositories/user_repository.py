@@ -1,0 +1,13 @@
+from sqlalchemy.orm import Session
+from app.models.user import User
+
+class UserRepository:
+    @staticmethod
+    def get_user_by_email(db: Session, email: str) -> User | None:
+        return db.query(User).filter(User.email == email).first()
+
+    @staticmethod
+    def create_user(db: Session, user: User) -> User:
+        db.add(user)
+        db.flush() # flush to get the user ID without committing
+        return user

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body { @apply bg-slate-50 text-slate-800 antialiased; }
+	button, input, select, textarea { @apply outline-none; }
+	input, select, textarea { @apply rounded-lg border-slate-200 bg-white px-3 py-2.5 text-sm shadow-sm transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100; }
+	label { @apply text-sm font-semibold text-slate-700; }
+}
+
+@layer components {
+	.page-card { @apply overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm; }
+	.primary-button { @apply inline-flex min-h-[44px] items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60; }
+	.muted-button { @apply inline-flex min-h-[44px] items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50; }
+	.table-shell { @apply overflow-x-auto; }
+	.data-table { @apply min-w-[640px] w-full text-left text-sm; }
+	.data-table thead { @apply bg-slate-50 text-xs uppercase tracking-wider text-slate-500; }
+	.data-table th { @apply whitespace-nowrap px-5 py-3 font-bold; }
+	.data-table td { @apply border-t border-slate-100 px-5 py-4; }
+	.data-table tbody tr { @apply transition hover:bg-blue-50/40; }
+}
