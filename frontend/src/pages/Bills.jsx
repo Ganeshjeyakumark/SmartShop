@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { FileText, Eye } from 'lucide-react';
+import { formatDateTimeIST } from '../services/date';
 
 export default function Bills() {
   const [bills, setBills] = useState([]);
@@ -47,7 +48,7 @@ export default function Bills() {
             {bills.map(bill => (
               <tr key={bill.id} className="border-b hover:bg-gray-50">
                 <td className="p-4 font-medium text-blue-600">{bill.bill_number}</td>
-                <td className="p-4">{new Date(bill.created_at).toLocaleDateString()}</td>
+                <td className="p-4">{formatDateTimeIST(bill.created_at)}</td>
                 <td className="p-4">{bill.customer_id ? `Cust #${bill.customer_id}` : 'Walk-in'}</td>
                 <td className="p-4 font-semibold">₹{bill.total_amount}</td>
                 <td className="p-4">

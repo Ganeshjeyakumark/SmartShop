@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../services/api';
 import printerService from '../services/printer';
+import { formatDateTimeIST } from '../services/date';
 import { Printer as PrinterIcon, Download, ArrowLeft } from 'lucide-react';
 
 export default function BillDetails() {
@@ -64,7 +65,7 @@ export default function BillDetails() {
         <div className="grid grid-cols-2 gap-4 mb-8 text-sm">
           <div>
             <p className="text-gray-500">Date</p>
-            <p className="font-medium">{new Date(bill.created_at).toLocaleString()}</p>
+            <p className="font-medium">{formatDateTimeIST(bill.created_at)}</p>
           </div>
           <div>
             <p className="text-gray-500">Payment Method</p>
@@ -122,7 +123,7 @@ export default function BillDetails() {
           </div>
           <div className="mb-2">
             <div>Bill No: {bill.bill_number}</div>
-            <div>Date: {new Date(bill.created_at).toLocaleString()}</div>
+            <div>Date: {formatDateTimeIST(bill.created_at)}</div>
           </div>
           <div className="border-top border-bottom py-1 mb-2">
             <table>
